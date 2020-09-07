@@ -1,0 +1,37 @@
+[
+  {
+    "commentCounts": 0,
+    "commented": false,
+    "date": "22-10-2010",
+    "likeCounts": 0,
+    "liked": false,
+    "post": "First post in our network",
+    "postType": "EVENT",
+    "shareCounts": 0,
+    "shared": false,
+    "username": "Username1"
+  },
+  {
+    "commentCounts": 0,
+    "commented": false,
+    "date": "22-10-2010",
+    "likeCounts": 0,
+    "liked": false,
+    "post": "Second post in our network",
+    "postType": "YOUTUBE_VIDEO",
+    "shareCounts": 0,
+    "shared": false,
+    "username": "Username2"
+  },
+  {
+    "commentCounts": 0,
+    "commented": false,
+    "date": "22-10-2010",
+    "likeCounts": 0,
+    "liked": false,
+    "post": "Third post in our network",
+    "shareCounts": 0,
+    "shared": false,
+    "username": "Username3"
+  }
+]
