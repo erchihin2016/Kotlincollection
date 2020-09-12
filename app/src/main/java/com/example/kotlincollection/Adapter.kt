@@ -8,8 +8,8 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.post_card_view.view.*
-import java.time.LocalDate
-import java.time.Period
+import org.joda.time.LocalDate
+import org.joda.time.Period
 
 class Adapter(val list: MutableList<PostCard>) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
@@ -139,6 +139,7 @@ class PostViewHolder(private val adapter: Adapter, view: View) : RecyclerView.Vi
                     adapter.notifyDataSetChanged()
                 }
             }
+
             location_btn.setOnClickListener {
                 if (adapterPosition != RecyclerView.NO_POSITION) {
                     val item = adapter.list[adapterPosition]
@@ -166,6 +167,7 @@ class PostViewHolder(private val adapter: Adapter, view: View) : RecyclerView.Vi
             youtube_btn.setOnClickListener {
                 if (adapterPosition != RecyclerView.NO_POSITION) {
                     val item = adapter.list[adapterPosition]
+
                     if (item.postType == PostType.YOUTUBE_VIDEO) {
                         val intentUri = Uri.parse("https://www.youtube.com/watch?v=WhWc3b3KhnY")
                         val youtubeIntent = Intent(Intent.ACTION_VIEW, intentUri).apply {
@@ -177,6 +179,7 @@ class PostViewHolder(private val adapter: Adapter, view: View) : RecyclerView.Vi
             }
         }
     }
+
     private fun getTimePeriod(post: PostCard): String {
         val currentDate = LocalDate()
         val postDate = LocalDate()
