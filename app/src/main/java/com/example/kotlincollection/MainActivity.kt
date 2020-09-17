@@ -1,6 +1,7 @@
 package com.example.kotlincollection
 
 import android.os.Bundle
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.gson.Gson
@@ -23,12 +24,16 @@ class MainActivity : AppCompatActivity(), CoroutineScope by MainScope() {
     }
 
     private fun fetchData(): Job = launch {
-        val list = withContext(Dispatchers.IO) {
-            Api.client.get<MutableList<PostCard>>(Api.url)
-        }
-        with(recycle_main) {
-            layoutManager = LinearLayoutManager(this@MainActivity)
-            adapter = Adapter(list)
+        try {
+            val list = withContext(Dispatchers.IO) {
+                Api.client.get<MutableList<PostCard>>(Api.url)
+            }
+            with(recycle_main) {
+                layoutManager = LinearLayoutManager(this@MainActivity)
+                adapter = Adapter(list)
+            }
+        } catch (e: Exception) {
+            Toast.makeText(this@MainActivity, "Нет интернета", Toast.LENGTH_SHORT).show()
         }
     }
 
